@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarlonPolanco_COVID19Report", "MarlonPolanco_COVID19Report\MarlonPolanco_COVID19Report.csproj", "{739B6023-DFBB-404B-8594-682564A83F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarlonPolanco_COVID19ReportTests", "MarlonPolanco_COVID19ReportTests\MarlonPolanco_COVID19ReportTests.csproj", "{7274F8FB-362E-4837-9236-6D32984D943C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{739B6023-DFBB-404B-8594-682564A83F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739B6023-DFBB-404B-8594-682564A83F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739B6023-DFBB-404B-8594-682564A83F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739B6023-DFBB-404B-8594-682564A83F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7274F8FB-362E-4837-9236-6D32984D943C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7274F8FB-362E-4837-9236-6D32984D943C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7274F8FB-362E-4837-9236-6D32984D943C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7274F8FB-362E-4837-9236-6D32984D943C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3264DA03-028A-4EBB-A866-FCFFB21E001A}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,50 @@
+﻿
+@model IEnumerable<ResponseReport>
+@{
+    ViewBag.Title = "List";
+}
+<table id="firm_table" class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            @{
+                if (ViewBag.IsRegion == "YES")
+                {
+                    <th style="text-align:center;">Region</th>
+                }
+                else
+                {
+                    <th style="text-align:center;">Province</th>
+                }
+            }
+
+            <th style="text-align:center;">Cases</th>
+            <th style="text-align:center;">Deaths</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center;">
+                    @Html.DisplayFor(modelItem => item.Regions)
+                </td>
+                <td style="text-align:center;">
+                    @Html.DisplayFor(modelItem => item.Cases)
+                </td>
+                <td style="text-align:center;">
+                    @Html.DisplayFor(modelItem => item.Deaths)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<br />
+
+@if (TempData["Error"] != null)
+{
+    <label style="font-size:12pt; color:red; text-align:center;">
+        @TempData["Error"].ToString()
+    </label>
+}

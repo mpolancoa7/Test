@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="jumbotron">
+    <h1>COVID-19 CASES</h1>
+    <p class="lead">
+        TOP 10 regions with most COVID-19 cases.
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <select class="form-control selectpicker" id="select-country" data-live-search="true">
+            <option data-tokens="Regions" value="0">Regions</option>
+            @foreach (var item in ViewBag.RegionsCombo)
+            {
+                <option data-tokens="@item.Text" value="@item.Value">@item.Text</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button id="btnReport" type="button" class="btn btn-primary">Report</button>
+    </div>
+    <div class="col-md-7 text-right">
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
+                Export
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" style="margin-left:76%;">
+                <li><a class="dropdown-item" onclick="exportAll('csv');" href="javascript://">CSV</a></li>
+                <li><a class="dropdown-item" onclick="exportAll('txt');" href="javascript://">TXT</a></li>
+                <li><a class="dropdown-item" onclick="exportAll('xls');" href="javascript://">XLS</a></li>
+                <li><a class="dropdown-item" onclick="exportAll('sql');" href="javascript://">SQL</a></li>
+                <li><a class="dropdown-item" onclick="exportAll('json');" href="javascript://">JSON</a></li>
+                <li><a class="dropdown-item" onclick="exporttoxml();" href="javascript://">XML</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-md-1" style="width: 4%;margin-top: 0.5%;">
+        Show
+    </div>
+    <div class="col-md-1">
+        <input width="20" type="number" class="form-control" id="txtShow" placeholder="Show Cases" value="10" min="10">
+    </div>
+    <div class="col-md-1" style="width: 4%;margin-top: 0.5%; margin-left:-2%;">
+        entries
+    </div>
+    <div class="col-md-9"></div>
+</div>
+<br />
+<div class="row">
+    <div class="table-responsive">
+        <div id="viewPlaceHolder"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            CargarDatos();
+        });
+        $("#btnReport").click(function () {
+            CargarDatos();
+        });
+        function CargarDatos() {
+            $('#viewPlaceHolder').load('@Url.Action("IndexTable")' + "?pShow=" + $("#txtShow").val() + "&pIso=" + $("#select-country").val());
+        }
+        function exporttoxml() {
+            $("#firm_table").tabletoxml({
+                rootnode: "CovidCases",
+                childnode: "Detail",
+                filename: 'CovidCasesXML'
+            });
+        }
+    </script>
+}
